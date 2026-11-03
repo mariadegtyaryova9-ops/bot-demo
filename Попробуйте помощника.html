@@ -1,0 +1,220 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Попробуйте помощника</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap">
+<style>
+  :root{--bg:#f7ecdc;--bg2:#efdcc0;--surface:#fffaf2;--fg:#2e1c14;--muted:#7d6252;--line:#e6d3b8;--accent:#5a3427;--accent-edge:#34190f;--accent-ink:#fff6ea;--mint:#f1dcbd;--mint-ink:#4a2c20;--warm:#ecd3ad;--warm-ink:#4a2c20}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1f1612;--bg2:#2a1e18;--surface:#33251d;--fg:#f6e8d6;--muted:#c9ad94;--line:#4a372b;--accent:#e0a77b;--accent-edge:#a8744a;--accent-ink:#2a160c;--mint:#4a3629;--mint-ink:#f6e3cb;--warm:#54402c;--warm-ink:#f6dfc0}}
+  :root[data-theme="dark"]{--bg:#1f1612;--bg2:#2a1e18;--surface:#33251d;--fg:#f6e8d6;--muted:#c9ad94;--line:#4a372b;--accent:#e0a77b;--accent-edge:#a8744a;--accent-ink:#2a160c;--mint:#4a3629;--mint-ink:#f6e3cb;--warm:#54402c;--warm-ink:#f6dfc0}
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(circle at 12% 0%,#fff6e6 0,transparent 45%),radial-gradient(circle at 100% 30%,#ecd2a8 0,transparent 40%),var(--bg);color:var(--fg);font:17px/1.55 Onest,system-ui,sans-serif;padding:28px max(16px,env(safe-area-inset-right)) 56px max(16px,env(safe-area-inset-left))}
+  .wrap{max-width:1040px;margin:0 auto}
+  h1{font:600 clamp(24px,4.6vw,40px)/1.15 Unbounded,Onest,sans-serif;margin:0 0 10px}
+  .lead{color:var(--muted);max-width:62ch;margin:0 0 22px}
+  .badge{display:inline-block;padding:4px 12px;border-radius:99px;background:var(--warm);color:var(--warm-ink);font-weight:700;font-size:13px;margin-bottom:14px}
+  .tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+  .tab{padding:10px 18px;border-radius:99px;border:2px solid var(--fg);background:transparent;font:700 15px Onest,sans-serif;color:var(--fg);cursor:pointer}
+  .tab[aria-selected=true]{background:var(--fg);color:var(--bg)}
+  .grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:start}
+  @media(max-width:860px){.grid{grid-template-columns:minmax(0,1fr)}}
+  .phone{border:2px solid var(--fg);box-shadow:0 14px 34px rgba(90,52,39,.18);border-radius:34px;overflow:hidden;background:var(--surface);max-width:400px;width:100%;margin:0 auto}
+  .hd{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .hd .ava{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--mint);color:var(--mint-ink);font-size:20px}
+  .hd b{display:block;line-height:1.2}.hd small{color:var(--muted);font-size:13px}
+  .app{margin-left:auto;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:700;background:var(--bg2)}
+  .msgs{height:430px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px;background:var(--bg);scrollbar-width:thin}
+  .m{max-width:88%;padding:10px 14px;border-radius:18px;font-size:15.5px;line-height:1.4;animation:pop .3s ease;overflow-wrap:anywhere}
+  .m.bot{align-self:flex-start;background:var(--mint);color:var(--mint-ink);border-bottom-left-radius:5px}
+  .m.me{align-self:flex-end;background:var(--accent);color:var(--accent-ink);border-bottom-right-radius:5px}
+  .m{white-space:pre-line}.bar{margin:8px 0}.bar b{display:flex;justify-content:space-between;font-size:15px}.bar i{display:block;height:12px;border-radius:99px;background:var(--accent);margin-top:4px;transition:width .6s}
+  .sheet{border-collapse:collapse;width:100%;font-size:14px}.sheet th{background:var(--mint);color:var(--mint-ink);text-align:left;padding:6px 8px;border:1px solid var(--line);white-space:nowrap}.sheet td{padding:6px 8px;border:1px solid var(--line);min-width:70px}.sheet td.f{background:#fff7d6;color:#3a2a00;font-weight:600;animation:pop .4s}
+  .m.note{align-self:center;max-width:100%;background:none;color:var(--muted);font-size:13px;text-align:center;padding:2px}
+  .m.file{border:2px solid var(--mint-ink);background:var(--surface);color:var(--fg);font-weight:600}
+  .m.typing{display:flex;gap:4px;padding:14px 16px}.m.typing i{width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.5;animation:dot 1s infinite}
+  .m.typing i:nth-child(2){animation-delay:.15s}.m.typing i:nth-child(3){animation-delay:.3s}
+  .qrs{display:grid;gap:8px;padding:12px 14px 16px;border-top:1px solid var(--line);min-height:84px}
+  .qr{padding:10px 14px;text-align:left;cursor:pointer;border:1.5px solid var(--fg);border-radius:14px;background:transparent;color:var(--fg);font:600 15px Onest,sans-serif}
+  .qr:hover{background:var(--fg);color:var(--bg)}
+  .qr.skip{border-style:dashed;color:var(--muted);border-color:var(--muted)}
+  .hint{padding:0 14px 12px;color:var(--muted);font-size:13px;text-align:center}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:0 8px 24px rgba(120,80,40,.10);padding:20px 22px;margin-bottom:16px}
+  .card h3{margin:0 0 8px;font:600 18px Unbounded,Onest,sans-serif}
+  .card ul{margin:0;padding-left:20px}.card li{margin:4px 0}
+  .owner{background:var(--warm);color:var(--warm-ink);border:0}
+  .owner ol{margin:0;padding:0;list-style:none;display:grid;gap:8px;min-height:44px}
+  .owner li{background:rgba(255,255,255,.55);color:inherit;border-radius:12px;padding:8px 12px;font-size:15px;animation:pop .3s}
+  .owner .empty{opacity:.7;font-size:15px}
+  .idea{border:2px dashed var(--line);background:transparent}
+  .restart{background:none;border:0;text-decoration:underline;color:var(--muted);font:600 14px Onest,sans-serif;cursor:pointer;margin-top:10px}
+  .btn{display:inline-flex;margin-top:14px;padding:12px 24px;border-radius:99px;background:var(--accent);color:var(--accent-ink);font:700 16px Onest,sans-serif;text-decoration:none;box-shadow:0 4px 0 var(--accent-edge)}
+  @keyframes pop{from{transform:translateY(8px) scale(.97);opacity:0}to{transform:none;opacity:1}}
+  @keyframes dot{50%{transform:translateY(-4px)}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+<div class="wrap">
+  <span class="badge">Демонстрация: можно нажимать</span>
+  <h1>Попробуйте помощника сами</h1>
+  <p class="lead">Выберите пример и пройдите путь клиента: нажимайте кнопки, как в настоящей переписке. Справа видно, что получает владелец и что ещё можно было бы добавить.</p>
+  <div class="tabs" id="tabs" role="tablist"></div>
+  <div class="grid">
+    <div>
+      <div class="phone">
+        <div class="hd"><span class="ava" id="ava">🤖</span><div><b id="who">Помощник</b><small id="sub">демо</small></div><span class="app" id="app">Telegram</span></div>
+        <div class="msgs" id="msgs" aria-live="polite"></div>
+        <div class="qrs" id="qrs"></div>
+        <div class="hint">Это демонстрация: ничего не отправляется и деньги не списываются.</div>
+      </div>
+      <div style="text-align:center"><button class="restart" id="restart" type="button">Начать заново</button></div>
+    </div>
+    <div>
+      <div class="card"><h3>Что сделано в этой работе</h3><ul id="done"></ul></div>
+      <div class="card" id="statsCard" style="display:none"><h3>Пример отчёта (цифры условные)</h3><div id="bars"></div></div>
+      <div class="card" id="sheetCard"><h3>Google Таблица с контактами <span style="font-weight:500;font-size:13px;color:var(--muted)">(пример)</span></h3><div style="overflow-x:auto"><table class="sheet" id="sheet"></table></div></div>
+      <div class="card owner"><h3>Что в это время видит владелец</h3><ol id="owner"><li class="empty">Пока пусто. Нажмите кнопку в переписке.</li></ol></div>
+      <div class="card idea"><h3>Идеи, как развить</h3><ul id="ideas"></ul><p style="margin:10px 0 0;color:var(--muted);font-size:14px">Это идеи, а не часть уже сделанной работы. Их можно добавить под ваш проект.</p></div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn" href="https://t.me/maria_degtyareva_tech" target="_blank" rel="noopener">Написать Марии в Telegram</a><a class="btn" style="background:transparent;color:var(--fg);box-shadow:none;border:2px solid var(--fg)" href="https://max.ru/u/f9LHodD0cOKEeOgAdI1UpzwKPd3qFK_Kb0qBiw7G6VUogRCyMRIdZhzcjbY" target="_blank" rel="noopener">Или в MAX</a></div>
+    </div>
+  </div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const sleep=ms=>new Promise(r=>setTimeout(r,reduce?30:ms));
+/* ===== Сценарии. Узел: say - сообщения, btns - кнопки [текст, куда], app - в каком приложении, log - что видит владелец ===== */
+const CASES=[
+{
+ tab:'Кодовое слово',who:'Помощник: кодовое слово',ava:'🎬',start:'start',
+ cols:['Источник','Слово','Согласия','Telegram','Чек-лист'],
+ done:['Человек пишет кодовое слово «ПИТАНИЕ» под Reels или постом','Помощник отвечает под комментарием, каждый раз немного другими словами','В личных сообщениях человек даёт согласия: с офертой, рассылкой и политикой','Кнопка ведёт в Telegram, где приходит чек-лист','Контакт записывается в Google Таблицу, путь проверен с независимых аккаунтов'],
+ ideas:['Спросить в личке, что интересует, и дать подходящий материал','Напомнить на следующий день, если чек-лист не открыли','Разные кодовые слова для разных Reels, чтобы видеть, какое работает лучше'],
+ init:()=>({n:0}),
+ nodes:{
+  start:{app:'Instagram',say:[{note:'Под вашим Reels или постом вы просите написать слово в комментариях'}],btns:[['Написать комментарий «ПИТАНИЕ»','c']]},
+  c:{log:'Кодовое слово «ПИТАНИЕ» поймано',sheet:{'Источник':'Reels','Слово':'ПИТАНИЕ'},say:[],auto:()=>'reply'},
+  reply:{say:[],reply:true,auto:()=>'dm'},
+  dm:{say:['Привет! Чтобы отправить чек-лист, нужно ваше согласие с офертой, рассылкой и политикой.'],btns:[['Согласен(на)','yes']]},
+  yes:{log:'Согласия получены и записаны в Google Таблицу',sheet:{'Согласия':'да'},say:['Спасибо! Теперь перейдите в Telegram, там пришлю чек-лист.'],btns:[['Перейти в Telegram','tg']]},
+  tg:{app:'Telegram',log:'Человек перешёл в Telegram, строка в Google Таблице обновлена',sheet:{'Telegram':'да','Чек-лист':'отправлен'},say:['Вот ваш чек-лист 👇',{file:'Чек-лист.pdf'},'Хорошего дня!'],btns:[['Пройти заново','start']]}
+ },
+ replies:['Отправила вам в личные сообщения! ✨','Уже в личке 😉','Проверьте личные сообщения, всё там!','Ссылка улетела вам в личку 🚀']
+},
+{
+ tab:'Клуб под ключ',who:'Помощник клуба',ava:'🔐',start:'start',
+ cols:['Телефон','Почта','Оплата','Доступ'],
+ done:['Согласия, телефон и почта берутся при знакомстве','Человек выбирает: оплатить тариф или написать в поддержку','После оплаты закрытый канал открывается сам','Напоминания за 3 и за 1 день до списания','Оплатил: подписка продлена. Не оплатил: человек убран из чата и канала','Вопросы сразу попадают менеджерам в рабочий чат'],
+ ideas:['Письмо «Мы скучаем» с предложением вернуться, если человек ушёл','Короткий опрос при отключении: почему уходите','Приветственное видео от вас после оплаты'],
+ init:()=>({known:false}),
+ nodes:{
+  start:{say:['Добро пожаловать в клуб! 🌿'],auto:s=>s.known?'menu_known':'consent'},
+  consent:{say:['Для начала нужно ваше согласие.'],btns:[['Согласен(на)','data']]},
+  data:{log:'Согласие получено',say:['Оставьте, пожалуйста, телефон и почту.'],btns:[['Отправить телефон и почту (демо)','saved']]},
+  saved:{log:'Телефон и почта записаны в Google Таблицу',sheet:{'Телефон':'+7 900 000-00-00','Почта':'name@mail.ru'},set:{known:true},say:['Спасибо, всё записала ✅'],auto:()=>'menu'},
+  menu_known:{say:['Вы уже оставляли данные, повторять не нужно 🙂'],auto:()=>'menu'},
+  menu:{say:['Что хотите сделать?'],btns:[['Оплатить тариф','paid'],['Написать в поддержку','sup']]},
+  sup:{say:['Напишите ваш вопрос одним сообщением.'],btns:[['«Не пришла ссылка на канал» (пример)','sup2']]},
+  sup2:{log:'Менеджерам в рабочий чат пришло: «Не пришла ссылка на канал» + контакты человека',say:['Передала ваш вопрос менеджеру. Ответим прямо здесь 💬'],btns:[['В меню','menu']]},
+  paid:{log:'Оплата получена. Доступ в закрытый канал выдан автоматически',sheet:{'Оплата':'получена','Доступ':'открыт'},say:['Оплата прошла ✅','Вот ваша ссылка в закрытый канал:',{file:'Закрытый канал клуба'}],btns:[['⏩ Прошло 27 дней','r3']]},
+  r3:{log:'За 3 дня до списания ушло напоминание',say:[{note:'Прошло 27 дней'},'🔔 Через 3 дня спишется оплата за следующий месяц.'],btns:[['⏩ Прошло ещё 2 дня','r1']]},
+  r1:{log:'За 1 день до списания ушло второе напоминание',say:[{note:'Прошло ещё 2 дня'},'🔔 Завтра спишется оплата. Хотите оставить автопродление?'],btns:[['Оставить','charge'],['Отключить автопродление','off']]},
+  off:{log:'Автопродление отключено, доступ сохранится до конца оплаченного периода',sheet:{'Оплата':'без автопродления'},say:['Автопродление отключено. Доступ останется до конца оплаченного периода 👌'],btns:[['Начать заново','start']]},
+  charge:{say:[{note:'День списания'}],btns:[['Оплата прошла','ok'],['Оплаты нет','fail']]},
+  ok:{log:'Подписка продлена автоматически',sheet:{'Оплата':'продлена'},say:['Оплата прошла, подписка продлена на месяц 🎉'],btns:[['Начать заново','start']]},
+  fail:{log:'Оплаты нет: человек убран из чата и канала автоматически, вручную ничего делать не нужно',sheet:{'Доступ':'закрыт'},say:['К сожалению, оплата не прошла. Доступ к клубу закрыт.','Если хотите вернуться, нажмите «Оплатить».'],btns:[['Оплатить (демо)','paid']]}
+ }
+},
+{
+ tab:'Стартовая страница школы',who:'Онлайн-школа «Пример»',ava:'🎓',start:'start',
+ cols:['Имя','Телефон','Почта','Смотрел','Материал'],
+ done:['Это пример: онлайн-школа с главным меню в Telegram','Человек сам выбирает раздел: о школе, обучение, видеообращение, отзывы','В одном из разделов лежит полезный материал: чек-лист или визитка','Чтобы получить его, человек оставляет имя, телефон и почту','Всё записывается в Google Таблицу, вместе с тем, какие разделы он смотрел'],
+ ideas:['Разные материалы для разных интересов','Напоминание через 2 дня: «Удалось посмотреть программу?»','Кнопка «Записаться на пробный урок»'],
+ init:()=>({seen:[],known:false}),
+ nodes:{
+  start:{say:['Здравствуйте! 👋 Это онлайн-школа «Пример».','Выберите, что вам интересно:'],auto:()=>'menu'},
+  menu:{say:[],btns:[['🏫 О школе','about'],['📚 Обучение','study'],['🎥 Видеообращение','video'],['🎁 Полезный материал','gift'],['💬 Связаться с нами','contact']]},
+  about:{log:'Человек открыл раздел «О школе»',sheet:{'Смотрел':'о школе'},say:['Мы учим онлайн, маленькими группами. Мини-описание школы, команда и подход.'],btns:[['⬅️ В меню','menu']]},
+  study:{log:'Человек открыл раздел «Обучение»',sheet:{'Смотрел':'о школе, обучение'},say:['Программа: 4 модуля, живые встречи и обратная связь. Формат, сроки, что получит ученик.'],btns:[['⬅️ В меню','menu']]},
+  video:{log:'Человек посмотрел видеообращение',sheet:{'Смотрел':'о школе, обучение, видео'},say:[{file:'Видеообращение директора, 1 мин'}],btns:[['⬅️ В меню','menu']]},
+  gift:{say:['В подарок у нас чек-лист и визитка школы 🎁'],auto:s=>s.known?'giftdone':'ask'},
+  ask:{say:['Чтобы отправить его, оставьте имя, телефон и почту.'],btns:[['Отправить данные (демо)','saved']]},
+  saved:{log:'Имя, телефон и почта записаны в Google Таблицу',sheet:{'Имя':'Анна','Телефон':'+7 900 000-00-00','Почта':'anna@mail.ru'},set:{known:true},say:['Спасибо, Анна! ✅'],auto:()=>'giftdone'},
+  giftdone:{log:'Человек получил чек-лист и визитку',sheet:{'Материал':'чек-лист, визитка'},say:['Вот ваши материалы 👇',{file:'Чек-лист «5 шагов».pdf'},{file:'Визитка школы'}],btns:[['⬅️ В меню','menu']]},
+  contact:{log:'Менеджеру пришла заявка: «Хочу узнать подробнее» + данные из таблицы',say:['Передала менеджеру. Он свяжется с вами 💬'],btns:[['⬅️ В меню','menu']]}
+ }
+},
+{
+ tab:'Квиз и запись (идея)',who:'Квиз-помощник',ava:'🧩',start:'start',
+ cols:['Имя','Уровень','Цель','Запись','Напоминания'],
+ done:['Это пример того, что я могу собрать, а не готовая работа','Человек отвечает на 3 простых вопроса','Получает рекомендацию по ответам','Выбирает время для консультации или пробного урока','Приходят напоминания за день и за час, всё в Google Таблице'],
+ ideas:['Разные рекомендации для разных результатов','Скидка тем, кто записался в течение суток','Опрос после консультации: что понравилось'],
+ init:()=>({}),
+ nodes:{
+  start:{say:['Привет! Подберём подходящий формат за минуту 🙂','Вопрос 1 из 3: какой у вас уровень?'],btns:[['Только начинаю','q2'],['Уже есть опыт','q2'],['Профи, хочу расти','q2']]},
+  q2:{sheet:{'Уровень':'выбран'},say:['Вопрос 2 из 3: что вам важнее всего?'],btns:[['Быстрый результат','q3'],['Системные знания','q3'],['Поддержка наставника','q3']]},
+  q3:{sheet:{'Цель':'выбрана'},say:['Вопрос 3 из 3: когда удобно заниматься?'],btns:[['Утром','res'],['Вечером','res'],['По выходным','res']]},
+  res:{say:['Вам подойдёт формат с наставником и живыми встречами 🎯','Запишитесь на бесплатную консультацию, выберите время:'],btns:[['Сб 11:00','book'],['Сб 15:00','book'],['Вс 12:00','book']]},
+  book:{log:'Запись на консультацию внесена в Google Таблицу',sheet:{'Имя':'Анна','Запись':'Сб 11:00'},say:['Записала вас ✅ Увидимся!'],btns:[['⏩ Прошёл день','r1']]},
+  r1:{log:'Напоминание за день отправлено',sheet:{'Напоминания':'за день'},say:[{note:'Прошёл день'},'🔔 Завтра в 11:00 наша консультация.'],btns:[['⏩ Прошла ночь','r2']]},
+  r2:{log:'Напоминание за час отправлено со ссылкой',sheet:{'Напоминания':'за день, за час'},say:[{note:'Ещё немного времени'},'🔔 Через час встречаемся! Вот ссылка 👇',{file:'Ссылка на встречу'}],btns:[['Пройти заново','start']]}
+ }
+},
+{
+ tab:'Статистика',who:'Отчёт для владельца',ava:'📊',start:'start',
+ done:['Это то, что можно подключить к любой воронке','Считаем, сколько человек перешло в Telegram-канал','Сколько подписалось на аккаунт в Instagram','Сколько дали согласия и сколько получили чек-лист','Отчёт приходит владельцу сообщением, цифры берутся из Google Таблицы'],
+ ideas:['Отчёт каждый понедельник сам, без запроса','Сравнение разных Reels: какое слово приводит больше людей','Подсказка: на каком шаге люди теряются'],
+ stats:true,nosheet:true,
+ nodes:{
+  start:{say:['Привет! Я присылаю отчёты о воронке. Цифры в примере условные.'],btns:[['Показать отчёт за неделю','week'],['Показать отчёт за месяц','month']]},
+  week:{log:'Отчёт за неделю отправлен владельцу',stats:[['Перешли в Telegram-канал',120],['Подписались в Instagram',85],['Дали согласия',64],['Получили чек-лист',58]],say:['📊 Отчёт за неделю\n👀 Перешли в Telegram-канал: 120\n📸 Подписались в Instagram: 85\n✅ Дали согласия: 64\n📎 Получили чек-лист: 58'],btns:[['Показать за месяц','month'],['Где люди теряются?','lost']]},
+  month:{log:'Отчёт за месяц отправлен владельцу',stats:[['Перешли в Telegram-канал',510],['Подписались в Instagram',360],['Дали согласия',270],['Получили чек-лист',244]],say:['📊 Отчёт за месяц\n👀 Перешли в Telegram-канал: 510\n📸 Подписались в Instagram: 360\n✅ Дали согласия: 270\n📎 Получили чек-лист: 244'],btns:[['Показать за неделю','week'],['Где люди теряются?','lost']]},
+  lost:{log:'Владелец увидел, на каком шаге воронки теряется больше всего людей',say:['Больше всего людей теряется между подпиской и согласиями. Стоит упростить этот шаг: например, объяснить, зачем нужны согласия.'],btns:[['Показать за неделю','week'],['Показать за месяц','month']]}
+ }
+}
+];
+let cur=0,st={},token=0;
+function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e}
+function add(m){const d=el('div','m '+m.cls);if(m.text!=null)d.textContent=m.text;msgs.append(d);msgs.scrollTop=msgs.scrollHeight;return d}
+const msgs=$('msgs');
+function renderStats(rows){const mx=Math.max(...rows.map(r=>r[1]));$('bars').innerHTML=rows.map(([l,v])=>'<div class="bar"><b><span>'+l+'</span><span>'+v+'</span></b><i style="width:'+Math.round(v/mx*100)+'%"></i></div>').join('')}
+let sheetData={};
+function renderSheet(flash){const c=CASES[cur];const sc=$('sheetCard');if(c.nosheet||!c.cols){sc.style.display='none';return}sc.style.display='block';$('sheet').innerHTML='<tr>'+c.cols.map(h=>'<th>'+h+'</th>').join('')+'</tr><tr>'+c.cols.map(h=>'<td'+(sheetData[h]?' class="f"':'')+'>'+(sheetData[h]||'—')+'</td>').join('')+'</tr>'}
+function log(t){const o=$('owner');const e=o.querySelector('.empty');if(e)e.remove();o.append(el('li',null,'✓ '+t));}
+async function runNode(id){
+ const my=token,c=CASES[cur],n=c.nodes[id];
+ if(n.app)$('app').textContent=n.app;
+ if(n.set)Object.assign(st,n.set);
+ $('qrs').innerHTML='';
+ if(n.log)log(n.log);
+ if(n.stats)renderStats(n.stats);
+ if(n.sheet){Object.assign(sheetData,n.sheet);renderSheet(true)}
+ if(n.reply){const c0=c.replies[(st.n=((st.n||0)+1))%c.replies.length];const t=el('div','m typing bot','<i></i><i></i><i></i>');msgs.append(t);await sleep(700);if(my!==token)return;t.remove();add({cls:'bot',text:'💬 Ответ под видео: '+c0});await sleep(500)}
+ for(const s of n.say){
+  if(my!==token)return;
+  if(typeof s==='object'&&s.note){add({cls:'note',text:s.note});continue}
+  const t=el('div','m typing bot','<i></i><i></i><i></i>');msgs.append(t);msgs.scrollTop=msgs.scrollHeight;await sleep(650);if(my!==token)return;t.remove();
+  if(typeof s==='object'&&s.file)add({cls:'bot file',text:'📎 '+s.file});else add({cls:'bot',text:s});
+  await sleep(250);
+ }
+ if(my!==token)return;
+ if(n.auto){const nx=n.auto(st);return runNode(nx)}
+ (n.btns||[]).forEach(([label,to],i)=>{
+  const b=el('button','qr');b.type='button';b.textContent=label;
+  b.onclick=()=>{if(my!==token)return;$('qrs').innerHTML='';add({cls:'me',text:label.replace(' (демо)','').replace(' (пример)','')});runNode(to)};
+  $('qrs').append(b);
+ });
+}
+function load(i){
+ cur=i;token++;const c=CASES[i];st=c.init?c.init():{};
+ [...$('tabs').children].forEach((b,j)=>b.setAttribute('aria-selected',j===i));
+ $('who').textContent=c.who;$('ava').textContent=c.ava;$('sub').textContent='демо-помощник';$('app').textContent='Telegram';
+ $('done').innerHTML='';c.done.forEach(t=>$('done').append(el('li',null,t)));
+ $('ideas').innerHTML='';c.ideas.forEach(t=>$('ideas').append(el('li',null,t)));
+ $('owner').innerHTML='<li class="empty">Пока пусто. Нажмите кнопку в переписке.</li>';$('statsCard').style.display=c.stats?'block':'none';sheetData={};renderSheet();$('bars').innerHTML='';
+ msgs.innerHTML='';$('qrs').innerHTML='';
+ runNode(c.start);
+}
+CASES.forEach((c,i)=>{const b=el('button','tab');b.type='button';b.setAttribute('role','tab');b.textContent=c.tab;b.onclick=()=>load(i);$('tabs').append(b)});
+$('restart').onclick=()=>load(cur);
+load(0);
+</script>
+
+</body></html>
